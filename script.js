@@ -1,4 +1,4 @@
-const APPS_SCRIPT_URL = "";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyqbUL98I2sfBJR1v5KjhsgtMy_BALQ0QQfvZAhI_uEAngrShkWCrK1U0jhZfZtpoCu/exec";
 
 const form = document.querySelector("#survey-form");
 const statusNode = document.querySelector("#form-status");
@@ -26,14 +26,11 @@ if (form && statusNode) {
     statusNode.textContent = "A enviar respostas...";
 
     try {
-      const response = await fetch(APPS_SCRIPT_URL, {
+      await fetch(APPS_SCRIPT_URL, {
         method: "POST",
+        mode: "no-cors",
         body: payload,
       });
-
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
-      }
 
       form.reset();
       statusNode.textContent =

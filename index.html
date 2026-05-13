@@ -202,11 +202,463 @@
         <p class="eyebrow">Participação</p>
         <h2>Questionário sobre sono e uso de ecrãs</h2>
         <p class="form-intro">
-          Este questionário ajuda a perceber hábitos de sono, uso de ecrãs e rotinas antes de dormir.
-          O formulário já está preparado para enviar respostas para Google Sheets.
+          Este questionário baseia-se nas perguntas do documento que enviaste, com secções sobre dados demográficos,
+          hábitos de sono, sonolência diurna, uso de ecrãs e impacto percebido. O formulário já está preparado para
+          enviar respostas para Google Sheets.
         </p>
 
         <form class="survey-form" id="survey-form">
+          <section class="form-section">
+            <div class="form-section__head">
+              <p class="eyebrow">Secção A</p>
+              <h3>Dados Demográficos</h3>
+            </div>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Qual é a sua idade?</span>
+                <select name="idade" required>
+                  <option value="">Seleciona</option>
+                  <option value="menos de 18">Menos de 18 anos</option>
+                  <option value="18-25">18-25 anos</option>
+                  <option value="26-40">26-40 anos</option>
+                  <option value="41-60">41-60 anos</option>
+                  <option value="mais de 60">Mais de 60 anos</option>
+                </select>
+              </label>
+
+              <fieldset class="field fieldset">
+                <legend>Qual é o seu género?</legend>
+                <div class="option-grid">
+                  <label><input type="radio" name="genero" value="feminino" required> Feminino</label>
+                  <label><input type="radio" name="genero" value="masculino"> Masculino</label>
+                  <label><input type="radio" name="genero" value="outro"> Outro</label>
+                  <label><input type="radio" name="genero" value="prefiro nao responder"> Prefiro não responder</label>
+                </div>
+              </fieldset>
+            </div>
+
+            <label class="field">
+              <span>Qual é a sua ocupação principal?</span>
+              <select name="ocupacao_principal" required>
+                <option value="">Seleciona</option>
+                <option value="estudante basico secundario">Estudante (Ensino Básico/Secundário)</option>
+                <option value="estudante superior">Estudante (Ensino Superior)</option>
+                <option value="trabalhador tempo inteiro">Trabalhador(a) a tempo inteiro</option>
+                <option value="trabalhador tempo parcial">Trabalhador(a) a tempo parcial</option>
+                <option value="reformado">Reformado(a)</option>
+                <option value="desempregado">Desempregado(a)</option>
+                <option value="outro">Outro</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Se escolheste "Outro", especifica</span>
+              <input type="text" name="ocupacao_outro" placeholder="Escreve aqui">
+            </label>
+          </section>
+
+          <section class="form-section">
+            <div class="form-section__head">
+              <p class="eyebrow">Secção B</p>
+              <h3>Hábitos de Sono</h3>
+            </div>
+
+            <p class="section-note">Responde pensando no último mês.</p>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Durante o último mês, a que horas costuma ir para a cama?</span>
+                <input type="time" name="hora_deitar" required>
+              </label>
+
+              <label class="field">
+                <span>Quanto tempo costuma demorar a adormecer? (minutos)</span>
+                <input type="number" name="minutos_adormecer" min="0" step="1" placeholder="Ex.: 20" required>
+              </label>
+            </div>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Durante o último mês, a que horas costuma acordar?</span>
+                <input type="time" name="hora_acordar" required>
+              </label>
+
+              <label class="field">
+                <span>Quantas horas de sono efetivo costuma ter por noite?</span>
+                <input type="number" name="horas_sono_efetivo" min="0" max="24" step="0.5" placeholder="Ex.: 7.5" required>
+              </label>
+            </div>
+
+            <div class="field-grid field-grid--dense">
+              <label class="field">
+                <span>5a. Não conseguir adormecer em 30 minutos</span>
+                <select name="sono_prob_5a" required>
+                  <option value="">Seleciona</option>
+                  <option value="nunca">Nunca durante o último mês</option>
+                  <option value="menos_1_semana">Menos de uma vez por semana</option>
+                  <option value="1_2_semana">Uma ou duas vezes por semana</option>
+                  <option value="3_ou_mais_semana">Três ou mais vezes por semana</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>5b. Acordar a meio da noite ou de manhã cedo</span>
+                <select name="sono_prob_5b" required>
+                  <option value="">Seleciona</option>
+                  <option value="nunca">Nunca durante o último mês</option>
+                  <option value="menos_1_semana">Menos de uma vez por semana</option>
+                  <option value="1_2_semana">Uma ou duas vezes por semana</option>
+                  <option value="3_ou_mais_semana">Três ou mais vezes por semana</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>5c. Ter de se levantar para ir à casa de banho</span>
+                <select name="sono_prob_5c" required>
+                  <option value="">Seleciona</option>
+                  <option value="nunca">Nunca durante o último mês</option>
+                  <option value="menos_1_semana">Menos de uma vez por semana</option>
+                  <option value="1_2_semana">Uma ou duas vezes por semana</option>
+                  <option value="3_ou_mais_semana">Três ou mais vezes por semana</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>5d. Dificuldade em respirar</span>
+                <select name="sono_prob_5d" required>
+                  <option value="">Seleciona</option>
+                  <option value="nunca">Nunca durante o último mês</option>
+                  <option value="menos_1_semana">Menos de uma vez por semana</option>
+                  <option value="1_2_semana">Uma ou duas vezes por semana</option>
+                  <option value="3_ou_mais_semana">Três ou mais vezes por semana</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>5e. Tossir ou ressonar alto</span>
+                <select name="sono_prob_5e" required>
+                  <option value="">Seleciona</option>
+                  <option value="nunca">Nunca durante o último mês</option>
+                  <option value="menos_1_semana">Menos de uma vez por semana</option>
+                  <option value="1_2_semana">Uma ou duas vezes por semana</option>
+                  <option value="3_ou_mais_semana">Três ou mais vezes por semana</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>5f. Sentir demasiado frio</span>
+                <select name="sono_prob_5f" required>
+                  <option value="">Seleciona</option>
+                  <option value="nunca">Nunca durante o último mês</option>
+                  <option value="menos_1_semana">Menos de uma vez por semana</option>
+                  <option value="1_2_semana">Uma ou duas vezes por semana</option>
+                  <option value="3_ou_mais_semana">Três ou mais vezes por semana</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>5g. Sentir demasiado calor</span>
+                <select name="sono_prob_5g" required>
+                  <option value="">Seleciona</option>
+                  <option value="nunca">Nunca durante o último mês</option>
+                  <option value="menos_1_semana">Menos de uma vez por semana</option>
+                  <option value="1_2_semana">Uma ou duas vezes por semana</option>
+                  <option value="3_ou_mais_semana">Três ou mais vezes por semana</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>5h. Pesadelos</span>
+                <select name="sono_prob_5h" required>
+                  <option value="">Seleciona</option>
+                  <option value="nunca">Nunca durante o último mês</option>
+                  <option value="menos_1_semana">Menos de uma vez por semana</option>
+                  <option value="1_2_semana">Uma ou duas vezes por semana</option>
+                  <option value="3_ou_mais_semana">Três ou mais vezes por semana</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>5i. Dores</span>
+                <select name="sono_prob_5i" required>
+                  <option value="">Seleciona</option>
+                  <option value="nunca">Nunca durante o último mês</option>
+                  <option value="menos_1_semana">Menos de uma vez por semana</option>
+                  <option value="1_2_semana">Uma ou duas vezes por semana</option>
+                  <option value="3_ou_mais_semana">Três ou mais vezes por semana</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>5j. Outras razões</span>
+                <select name="sono_prob_5j" required>
+                  <option value="">Seleciona</option>
+                  <option value="nunca">Nunca durante o último mês</option>
+                  <option value="menos_1_semana">Menos de uma vez por semana</option>
+                  <option value="1_2_semana">Uma ou duas vezes por semana</option>
+                  <option value="3_ou_mais_semana">Três ou mais vezes por semana</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="field">
+              <span>Se assinalaste "Outras razões", especifica</span>
+              <input type="text" name="sono_prob_5j_outro" placeholder="Escreve aqui">
+            </label>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Com que frequência tomou medicação para ajudar a dormir?</span>
+                <select name="medicacao_dormir" required>
+                  <option value="">Seleciona</option>
+                  <option value="nunca">Nunca durante o último mês</option>
+                  <option value="menos_1_semana">Menos de uma vez por semana</option>
+                  <option value="1_2_semana">Uma ou duas vezes por semana</option>
+                  <option value="3_ou_mais_semana">Três ou mais vezes por semana</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Com que frequência se sentiu sonolento(a) enquanto conduzia, comia ou participava em atividades sociais?</span>
+                <select name="sonolencia_atividades" required>
+                  <option value="">Seleciona</option>
+                  <option value="nunca">Nunca durante o último mês</option>
+                  <option value="menos_1_semana">Menos de uma vez por semana</option>
+                  <option value="1_2_semana">Uma ou duas vezes por semana</option>
+                  <option value="3_ou_mais_semana">Três ou mais vezes por semana</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="field">
+              <span>Qual é a sua avaliação geral da qualidade do sono?</span>
+              <select name="qualidade_sono_geral" required>
+                <option value="">Seleciona</option>
+                <option value="muito_boa">Muito boa</option>
+                <option value="boa">Boa</option>
+                <option value="ma">Má</option>
+                <option value="muito_ma">Muito má</option>
+              </select>
+            </label>
+          </section>
+
+          <section class="form-section">
+            <div class="form-section__head">
+              <p class="eyebrow">Secção C</p>
+              <h3>Sonolência Diurna</h3>
+            </div>
+
+            <p class="section-note">Usa a escala: 0 = Nunca adormeceria, 1 = Pequena probabilidade, 2 = Moderada probabilidade, 3 = Grande probabilidade.</p>
+
+            <div class="field-grid field-grid--dense">
+              <label class="field">
+                <span>A ler sentado(a)</span>
+                <select name="ess_ler_sentado" required>
+                  <option value="">Seleciona</option>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>A ver televisão</span>
+                <select name="ess_ver_televisao" required>
+                  <option value="">Seleciona</option>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Sentado(a), inativo(a), num local público</span>
+                <select name="ess_local_publico" required>
+                  <option value="">Seleciona</option>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Como passageiro(a) num carro durante uma hora</span>
+                <select name="ess_passageiro_carro" required>
+                  <option value="">Seleciona</option>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>A deitar-se para descansar à tarde</span>
+                <select name="ess_descanso_tarde" required>
+                  <option value="">Seleciona</option>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>A conversar com alguém</span>
+                <select name="ess_conversar" required>
+                  <option value="">Seleciona</option>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>A comer uma refeição sentado(a)</span>
+                <select name="ess_comer_sentado" required>
+                  <option value="">Seleciona</option>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Num carro parado no trânsito por alguns minutos</span>
+                <select name="ess_carro_transito" required>
+                  <option value="">Seleciona</option>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </label>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <div class="form-section__head">
+              <p class="eyebrow">Secção D</p>
+              <h3>Uso de Ecrãs</h3>
+            </div>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Quantas horas por dia passa a usar ecrãs para lazer?</span>
+                <select name="ecras_horas_lazer" required>
+                  <option value="">Seleciona</option>
+                  <option value="menos_1h">Menos de 1 hora</option>
+                  <option value="1_2h">1-2 horas</option>
+                  <option value="3_4h">3-4 horas</option>
+                  <option value="5_6h">5-6 horas</option>
+                  <option value="mais_6h">Mais de 6 horas</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Com que frequência usa ecrãs na cama antes de dormir?</span>
+                <select name="ecras_cama_frequencia" required>
+                  <option value="">Seleciona</option>
+                  <option value="nunca">Nunca</option>
+                  <option value="raramente">Raramente (1-2 vezes por semana)</option>
+                  <option value="algumas_vezes">Algumas vezes (3-4 vezes por semana)</option>
+                  <option value="frequentemente">Frequentemente (5-6 vezes por semana)</option>
+                  <option value="sempre">Sempre (todos os dias)</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Quanto tempo antes de dormir costuma desligar todos os ecrãs?</span>
+                <select name="ecras_desligar_antes_dormir" required>
+                  <option value="">Seleciona</option>
+                  <option value="nao_desligo">Não desligo os ecrãs antes de dormir</option>
+                  <option value="menos_15">Menos de 15 minutos</option>
+                  <option value="15_30">15-30 minutos</option>
+                  <option value="31_60">31-60 minutos</option>
+                  <option value="mais_60">Mais de 60 minutos</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Que tipo de conteúdo consome mais antes de dormir?</span>
+                <select name="ecras_conteudo_noite" required>
+                  <option value="">Seleciona</option>
+                  <option value="redes_sociais">Redes sociais</option>
+                  <option value="jogos">Jogos</option>
+                  <option value="videos_filmes_series">Vídeos/Filmes/Séries</option>
+                  <option value="noticias_leitura">Notícias/Leitura</option>
+                  <option value="trabalho_estudo">Trabalho/Estudo</option>
+                  <option value="outro">Outro</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="field">
+              <span>Se escolheste "Outro" no conteúdo, especifica</span>
+              <input type="text" name="ecras_conteudo_outro" placeholder="Escreve aqui">
+            </label>
+
+            <div class="field-grid">
+              <fieldset class="field fieldset">
+                <legend>O seu quarto tem televisão?</legend>
+                <div class="option-grid">
+                  <label><input type="radio" name="quarto_televisao" value="sim" required> Sim</label>
+                  <label><input type="radio" name="quarto_televisao" value="nao"> Não</label>
+                </div>
+              </fieldset>
+
+              <fieldset class="field fieldset">
+                <legend>Costuma deixar o telemóvel no quarto enquanto dorme?</legend>
+                <div class="option-grid">
+                  <label><input type="radio" name="telemovel_quarto" value="sim_despertador" required> Sim, e uso-o como despertador</label>
+                  <label><input type="radio" name="telemovel_quarto" value="sim_nao_despertador"> Sim, mas não o uso como despertador</label>
+                  <label><input type="radio" name="telemovel_quarto" value="nao_outra_divisao"> Não, deixo-o noutra divisão</label>
+                </div>
+              </fieldset>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <div class="form-section__head">
+              <p class="eyebrow">Secção E</p>
+              <h3>Impacto Percebido</h3>
+            </div>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Na sua opinião, o uso de ecrãs afeta a qualidade do seu sono?</span>
+                <select name="impacto_ecras_sono" required>
+                  <option value="">Seleciona</option>
+                  <option value="nao_afeta">Não afeta de todo</option>
+                  <option value="afeta_pouco">Afeta um pouco</option>
+                  <option value="afeta_moderadamente">Afeta moderadamente</option>
+                  <option value="afeta_muito">Afeta muito</option>
+                  <option value="nao_sei">Não sei</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Sente que a falta de sono afeta o seu dia a dia?</span>
+                <select name="impacto_falta_sono_dia" required>
+                  <option value="">Seleciona</option>
+                  <option value="nunca">Nunca</option>
+                  <option value="raramente">Raramente</option>
+                  <option value="as_vezes">Às vezes</option>
+                  <option value="frequentemente">Frequentemente</option>
+                  <option value="sempre">Sempre</option>
+                </select>
+              </label>
+            </div>
+          </section>
+
           <div class="field-grid">
             <label class="field">
               <span>Nome ou código (opcional)</span>
@@ -214,90 +666,10 @@
             </label>
 
             <label class="field">
-              <span>Faixa etária</span>
-              <select name="faixa_etaria" required>
-                <option value="">Seleciona</option>
-                <option value="10-13">10-13 anos</option>
-                <option value="14-17">14-17 anos</option>
-                <option value="18-24">18-24 anos</option>
-                <option value="25+">25 ou mais</option>
-              </select>
+              <span>Email de contacto (opcional)</span>
+              <input type="email" name="email_contacto" placeholder="Ex.: nome@email.com">
             </label>
           </div>
-
-          <div class="field-grid">
-            <label class="field">
-              <span>Quantas horas dormes normalmente por noite?</span>
-              <select name="horas_sono" required>
-                <option value="">Seleciona</option>
-                <option value="menos de 6">Menos de 6 horas</option>
-                <option value="6-7">6 a 7 horas</option>
-                <option value="7-8">7 a 8 horas</option>
-                <option value="8-10">8 a 10 horas</option>
-                <option value="mais de 10">Mais de 10 horas</option>
-              </select>
-            </label>
-
-            <label class="field">
-              <span>Como avalias a tua qualidade de sono?</span>
-              <select name="qualidade_sono" required>
-                <option value="">Seleciona</option>
-                <option value="muito boa">Muito boa</option>
-                <option value="boa">Boa</option>
-                <option value="regular">Regular</option>
-                <option value="má">Má</option>
-                <option value="muito má">Muito má</option>
-              </select>
-            </label>
-          </div>
-
-          <fieldset class="field fieldset">
-            <legend>Com que frequência usas ecrãs nos 30 minutos antes de dormir?</legend>
-            <div class="option-row">
-              <label><input type="radio" name="ecras_antes_dormir" value="nunca" required> Nunca</label>
-              <label><input type="radio" name="ecras_antes_dormir" value="raramente"> Raramente</label>
-              <label><input type="radio" name="ecras_antes_dormir" value="algumas vezes"> Algumas vezes</label>
-              <label><input type="radio" name="ecras_antes_dormir" value="quase sempre"> Quase sempre</label>
-              <label><input type="radio" name="ecras_antes_dormir" value="sempre"> Sempre</label>
-            </div>
-          </fieldset>
-
-          <fieldset class="field fieldset">
-            <legend>Qual é o tipo de ecrã que usas mais à noite?</legend>
-            <div class="option-row">
-              <label><input type="radio" name="tipo_ecra_noite" value="telemovel" required> Telemóvel</label>
-              <label><input type="radio" name="tipo_ecra_noite" value="tablet"> Tablet</label>
-              <label><input type="radio" name="tipo_ecra_noite" value="computador"> Computador</label>
-              <label><input type="radio" name="tipo_ecra_noite" value="televisao"> Televisão</label>
-              <label><input type="radio" name="tipo_ecra_noite" value="nenhum"> Nenhum</label>
-            </div>
-          </fieldset>
-
-          <fieldset class="field fieldset">
-            <legend>As notificações ficam ativas durante a noite?</legend>
-            <div class="option-row">
-              <label><input type="radio" name="notificacoes_noite" value="sim" required> Sim</label>
-              <label><input type="radio" name="notificacoes_noite" value="nao"> Não</label>
-              <label><input type="radio" name="notificacoes_noite" value="as vezes"> Às vezes</label>
-            </div>
-          </fieldset>
-
-          <fieldset class="field fieldset">
-            <legend>Que hábitos já tentas adotar para dormir melhor?</legend>
-            <div class="option-grid">
-              <label><input type="checkbox" name="habitos_positivos" value="desligar ecras cedo"> Desligar ecrãs mais cedo</label>
-              <label><input type="checkbox" name="habitos_positivos" value="horario regular"> Manter horário regular</label>
-              <label><input type="checkbox" name="habitos_positivos" value="modo nao incomodar"> Ativar modo não incomodar</label>
-              <label><input type="checkbox" name="habitos_positivos" value="luz natural de manha"> Apanhar luz natural de manhã</label>
-              <label><input type="checkbox" name="habitos_positivos" value="evitar cafeina tarde"> Evitar cafeína à tarde/noite</label>
-              <label><input type="checkbox" name="habitos_positivos" value="nenhum ainda"> Ainda não adotei nenhum</label>
-            </div>
-          </fieldset>
-
-          <label class="field">
-            <span>Queres deixar uma sugestão para melhorar os hábitos de sono na escola, turma ou família?</span>
-            <textarea name="sugestao" rows="5" placeholder="Escreve aqui a tua ideia"></textarea>
-          </label>
 
           <div class="form-actions">
             <button class="button button--primary" type="submit">Enviar respostas</button>

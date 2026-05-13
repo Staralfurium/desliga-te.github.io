@@ -332,10 +332,37 @@ li {
   margin-top: 2rem;
 }
 
+.form-section {
+  display: grid;
+  gap: 1rem;
+  padding: 1.4rem;
+  border-radius: 1.6rem;
+  background: rgba(255, 255, 255, 0.34);
+  border: 1px solid rgba(31, 23, 47, 0.08);
+}
+
+.form-section__head {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.form-section__head h3 {
+  font-size: 1.6rem;
+}
+
+.section-note {
+  margin: 0;
+  color: var(--muted);
+}
+
 .field-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
+}
+
+.field-grid--dense {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .field,
@@ -461,6 +488,7 @@ li {
   }
 
   .field-grid,
+  .field-grid--dense,
   .option-grid,
   .option-row {
     grid-template-columns: 1fr 1fr;
@@ -501,6 +529,7 @@ li {
   }
 
   .field-grid,
+  .field-grid--dense,
   .option-grid,
   .option-row {
     grid-template-columns: 1fr;
