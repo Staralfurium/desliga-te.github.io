@@ -21,21 +21,59 @@
             <a href="./sobre.html">Sobre</a>
             <a href="./efeitos-ecras.html">Efeitos dos Ecrãs</a>
             <a href="./questionario.html">Questionário</a>
-            <a href="https://www.instagram.com/ipca.psicologia/" target="_blank" rel="noreferrer">IPCA.PSICOLOGIA</a>
+            <a class="site-nav__social" href="https://www.instagram.com/ipca.psicologia/" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5"></rect>
+                <circle cx="12" cy="12" r="4.1"></circle>
+                <circle cx="17.35" cy="6.65" r="1.15"></circle>
+              </svg>
+              <span>IPCA.PSICOLOGIA</span>
+            </a>
           </div>
         </div>
       </nav>
-      <p class="eyebrow">Campanha de Sensibilização</p>
+
+      <p class="eyebrow" data-mode-copy="reading">Campanha de Sensibilização</p>
+      <p class="eyebrow" data-mode-copy="screen" hidden>Exposição Noturna a Ecrãs</p>
       <h1>Desliga-te</h1>
-      <p class="hero__lead">
-        Desliga o ecrã. Liga o descanso. O uso de ecrãs à noite pode atrasar o sono, reduzir o tempo total de descanso
-        e piorar a qualidade do sono. Dormir bem protege a atenção, o humor, a aprendizagem, a imunidade e a saúde cardiovascular.
+
+      <p class="hero__lead" data-mode-copy="reading">
+        O lado bom do descanso. Aqui encontras benefícios reais do sono e hábitos concretos
+        para melhorar a noite, recuperar energia e proteger a saúde.
       </p>
+      <p class="hero__lead" data-mode-copy="screen" hidden>
+        O lado que rouba descanso. Aqui vês como o uso excessivo de ecrãs antes de dormir
+        encurta o sono, aumenta a ativação mental e piora o dia seguinte.
+      </p>
+
       <div class="hero__actions">
-        <a class="button button--primary" href="./questionario.html">Responde a este questionário</a>
+        <a class="button button--primary" href="./questionario.html">Responde ao questionário</a>
         <a class="button button--ghost" href="#fontes">Ver fontes e recomendações</a>
       </div>
-      <div class="hero__stats">
+
+      <div class="mode-caption" data-mode-copy="reading">
+        <strong>Leitura:</strong> descobre hábitos simples que ajudam a dormir melhor e a acordar com mais energia.
+      </div>
+      <div class="mode-caption mode-caption--screen" data-mode-copy="screen" hidden>
+        <strong>Ecrã:</strong> percebe como a luz, o scroll e o excesso de estímulo podem roubar descanso à tua noite.
+      </div>
+
+      <div class="hero__stats hero__stats--reading" data-mode-visibility="reading">
+        <article>
+          <strong>Mais foco</strong>
+          <span>Dormir bem melhora a atenção, a memória e a capacidade de aprender ao longo do dia.</span>
+        </article>
+        <article>
+          <strong>Mais equilíbrio</strong>
+          <span>O descanso protege o humor, reduz irritabilidade e ajuda a regular melhor o stress.</span>
+        </article>
+        <article>
+          <strong>Mais recuperação</strong>
+          <span>O sono apoia a imunidade, a recuperação física e a sensação de energia na manhã seguinte.</span>
+        </article>
+      </div>
+
+      <div class="hero__stats hero__stats--screen" data-mode-visibility="screen" hidden>
         <article>
           <strong>+59%</strong>
           <span>de probabilidade de sintomas de insónia por cada hora adicional de ecrã na cama, num estudo com jovens adultos</span>
@@ -45,50 +83,18 @@
           <span>de sono por cada hora adicional de ecrã na cama no mesmo estudo</span>
         </article>
         <article>
-          <strong>7+ horas</strong>
-          <span>de sono recomendadas para a maioria dos adultos; adolescentes devem dormir 8 a 10 horas</span>
+          <strong>Noite em alerta</strong>
+          <span>luz, estimulação e tempo roubado ao descanso prolongam o estado de vigília quando o corpo devia abrandar</span>
         </article>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="section">
-      <div class="wrap grid grid--2">
-        <div>
-          <p class="eyebrow">Porque acontece</p>
-          <h2>Porque é que os ecrãs podem roubar sono?</h2>
-        </div>
-        <div class="stack">
-          <div class="note">
-            <h3>Luz artificial tardia</h3>
-            <p>
-              A exposição a luz artificial intensa ao fim da noite pode interferir com a libertação de melatonina,
-              a hormona que ajuda o corpo a preparar-se para dormir.
-            </p>
-          </div>
-          <div class="note">
-            <h3>Estimulação mental</h3>
-            <p>
-              Redes sociais, vídeos, jogos, mensagens e notificações mantêm o cérebro em modo de alerta quando ele devia
-              estar a desacelerar.
-            </p>
-          </div>
-          <div class="note">
-            <h3>Tempo deslocado do sono</h3>
-            <p>
-              Muitas vezes o problema não é só a luz: é também o tempo que o ecrã ocupa quando já devíamos estar a dormir.
-              A investigação recente sugere que o tempo total no ecrã na cama pesa mais do que o tipo de atividade.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--tint">
+    <section class="section section--tint" data-mode-visibility="reading">
       <div class="wrap">
-        <p class="eyebrow">O que fazer</p>
-        <h2>Higiene do sono: hábitos que ajudam mesmo</h2>
+        <p class="eyebrow">Boas Práticas</p>
+        <h2>Hábitos de sono que ajudam mesmo</h2>
         <div class="cards">
           <article class="card">
             <h3>1. Manter horários regulares</h3>
@@ -96,40 +102,81 @@
           </article>
           <article class="card">
             <h3>2. Desligar ecrãs antes de dormir</h3>
-            <p>Evita telemóvel, tablet, computador e televisão pelo menos 30 minutos antes de deitar. Se conseguires, aumenta essa margem.</p>
+            <p>Evita telemóvel, tablet, computador e televisão pelo menos 30 minutos antes de deitar.</p>
           </article>
           <article class="card">
-            <h3>3. Não usar a cama como zona de scroll</h3>
-            <p>Associa a cama ao descanso. Sempre que possível, deixa o telemóvel a carregar fora do quarto ou longe da almofada.</p>
+            <h3>3. Tirar o telemóvel da cama</h3>
+            <p>Associa a cama ao descanso e reduz a tentação de continuar a fazer scroll.</p>
           </article>
           <article class="card">
             <h3>4. Criar um quarto amigo do sono</h3>
-            <p>Quarto escuro, silencioso, fresco e confortável. Menos luz e menos ruído ajudam o cérebro a mudar de ritmo.</p>
+            <p>Quarto escuro, silencioso, fresco e confortável ajuda o cérebro a mudar de ritmo.</p>
           </article>
           <article class="card">
             <h3>5. Fazer uma rotina de desaceleração</h3>
-            <p>Ler, ouvir música calma, alongar, tomar banho morno ou praticar respiração lenta pode preparar melhor o sono.</p>
+            <p>Ler, alongar, respirar fundo ou ouvir música calma prepara melhor o adormecer.</p>
           </article>
           <article class="card">
-            <h3>6. Cuidar do que se come e bebe</h3>
-            <p>Evita cafeína ao fim da tarde/noite, refeições pesadas, álcool e nicotina perto da hora de dormir.</p>
+            <h3>6. Reduzir cafeína tarde</h3>
+            <p>Evita café, bebidas energéticas e outros estimulantes nas horas mais próximas da noite.</p>
           </article>
           <article class="card">
             <h3>7. Mexer o corpo durante o dia</h3>
-            <p>Exercício regular ajuda a dormir melhor, mas idealmente não muito perto da hora de deitar.</p>
+            <p>Exercício regular melhora o descanso, desde que não fique demasiado perto da hora de dormir.</p>
           </article>
           <article class="card">
-            <h3>8. Fazer sestas curtas</h3>
-            <p>Se precisares de sesta, mantém-na curta. Sestas longas ou tardias podem atrasar o sono noturno.</p>
+            <h3>8. Repetir com consistência</h3>
+            <p>Pequenos hábitos repetidos ao longo da semana têm mais efeito do que mudanças ocasionais.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section--tint" data-mode-visibility="screen" hidden>
+      <div class="wrap">
+        <p class="eyebrow">Más Práticas</p>
+        <h2>Hábitos ligados ao uso de ecrãs que pioram o sono</h2>
+        <div class="cards cards--negative">
+          <article class="card">
+            <h3>1. Ir para a cama com o telemóvel</h3>
+            <p>A cama deixa de ser associada ao descanso e passa a funcionar como extensão do ecrã.</p>
+          </article>
+          <article class="card">
+            <h3>2. Ficar online até ao último minuto</h3>
+            <p>Sem tempo de desaceleração, o cérebro não entra facilmente em modo de adormecer.</p>
+          </article>
+          <article class="card">
+            <h3>3. Adormecer com notificações ativas</h3>
+            <p>Mesmo sem acordares sempre, o corpo mantém-se em estado de vigilância e expectativa.</p>
+          </article>
+          <article class="card">
+            <h3>4. Trocar sono por mais conteúdo</h3>
+            <p>Vídeos, jogos e redes sociais empurram a hora de deitar cada vez mais para tarde.</p>
+          </article>
+          <article class="card">
+            <h3>5. Usar o ecrã para “desligar a cabeça”</h3>
+            <p>Muitas vezes o efeito é o contrário: mais estímulo, mais ativação e mais dificuldade em parar.</p>
+          </article>
+          <article class="card">
+            <h3>6. Compensar o cansaço com mais cafeína</h3>
+            <p>A fadiga do dia seguinte alimenta um ciclo de alerta artificial que volta a perturbar a noite.</p>
+          </article>
+          <article class="card">
+            <h3>7. Misturar estudo, stress e ecrãs</h3>
+            <p>Levar trabalho e conflito digital para a última hora do dia prolonga a tensão mental.</p>
+          </article>
+          <article class="card">
+            <h3>8. Normalizar noites curtas</h3>
+            <p>Quando a privação se torna rotina, o corpo acumula fadiga e perde capacidade de recuperação.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-mode-visibility="reading">
       <div class="wrap">
         <p class="eyebrow">Dia a dia</p>
-        <h2>Outros hábitos saudáveis a adotar</h2>
+        <h2>Dicas para melhorar o sono fora da hora de deitar</h2>
         <div class="habit-grid">
           <article class="habit">
             <span class="habit__tag">Manhã</span>
@@ -137,59 +184,74 @@
             <p>A luz do dia ajuda a regular o relógio biológico e facilita adormecer à noite.</p>
           </article>
           <article class="habit">
-            <span class="habit__tag">Escola e trabalho</span>
+            <span class="habit__tag">Rotina</span>
             <h3>Planear tarefas mais cedo</h3>
-            <p>Evitar estudar, trabalhar ou resolver conflitos no ecrã em cima da hora de dormir reduz ativação mental.</p>
+            <p>Terminar trabalho, estudo e decisões exigentes antes da noite reduz ativação mental tardia.</p>
           </article>
           <article class="habit">
             <span class="habit__tag">Tecnologia</span>
             <h3>Silenciar notificações</h3>
-            <p>Ativar modo noturno, não incomodar ou alarmes sem distrações ajuda a cortar interrupções desnecessárias.</p>
+            <p>Modo não incomodar e menos alertas ajudam a proteger o descanso e evitam interrupções.</p>
           </article>
           <article class="habit">
             <span class="habit__tag">Saúde mental</span>
             <h3>Gerir o stress antes da cama</h3>
-            <p>Respiração, journaling ou uma lista rápida para o dia seguinte ajudam a tirar preocupações da cabeça.</p>
+            <p>Respiração, journaling ou uma pequena lista para amanhã ajudam a libertar a cabeça.</p>
           </article>
           <article class="habit">
             <span class="habit__tag">Família</span>
             <h3>Criar regras partilhadas</h3>
-            <p>É mais fácil cumprir uma rotina quando toda a casa adota uma hora para abrandar e largar os ecrãs.</p>
+            <p>É mais fácil cumprir uma rotina quando toda a casa abranda e larga os ecrãs em conjunto.</p>
           </article>
           <article class="habit">
             <span class="habit__tag">Consistência</span>
             <h3>Repetir todos os dias</h3>
-            <p>Higiene do sono funciona melhor com regularidade. Pequenos hábitos repetidos valem mais do que mudanças radicais por um dia.</p>
+            <p>O sono melhora mais com repetição do que com esforços isolados feitos de vez em quando.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section--tint">
+    <section class="section" data-mode-visibility="screen" hidden>
       <div class="wrap">
-        <p class="eyebrow">Explora</p>
-        <h2>Três portas de entrada para a campanha</h2>
-        <div class="launchpad">
-          <a class="launchpad__item" href="./sobre.html">
-            <span class="launchpad__meta">Sobre</span>
-            <h3>Conhecer a campanha</h3>
-            <p>Percebe a missão, os objetivos e como este projeto pode ser usado em contexto escolar ou comunitário.</p>
-          </a>
-          <a class="launchpad__item" href="./efeitos-ecras.html">
-            <span class="launchpad__meta">Efeitos</span>
-            <h3>Ver o impacto dos ecrãs</h3>
-            <p>Explora uma página dedicada aos efeitos negativos do uso excessivo de ecrãs antes de dormir.</p>
-          </a>
-          <a class="launchpad__item" href="./questionario.html">
-            <span class="launchpad__meta">Questionário</span>
-            <h3>Participar no estudo</h3>
-            <p>Responder ao questionário ajuda a recolher dados sobre hábitos de sono, ecrãs e impacto percebido.</p>
-          </a>
+        <p class="eyebrow">Consequências</p>
+        <h2>O que acontece quando o ecrã domina a noite</h2>
+        <div class="habit-grid">
+          <article class="habit">
+            <span class="habit__tag">Foco</span>
+            <h3>Mais distração</h3>
+            <p>O cérebro cansado demora mais a concentrar-se e comete mais erros em tarefas simples.</p>
+          </article>
+          <article class="habit">
+            <span class="habit__tag">Humor</span>
+            <h3>Mais irritabilidade</h3>
+            <p>Com menos descanso, o controlo emocional enfraquece e aumenta a sensibilidade ao stress.</p>
+          </article>
+          <article class="habit">
+            <span class="habit__tag">Energia</span>
+            <h3>Mais fadiga</h3>
+            <p>O cansaço acumula-se e o corpo entra num ciclo de esforço sem recuperação suficiente.</p>
+          </article>
+          <article class="habit">
+            <span class="habit__tag">Aprendizagem</span>
+            <h3>Menor retenção</h3>
+            <p>Memória, consolidação de conteúdos e velocidade de processamento ficam mais frágeis.</p>
+          </article>
+          <article class="habit">
+            <span class="habit__tag">Autocontrolo</span>
+            <h3>Mais impulsividade</h3>
+            <p>Quando a noite é curta, torna-se mais difícil resistir a distrações e repetir o mesmo padrão.</p>
+          </article>
+          <article class="habit">
+            <span class="habit__tag">Rotina</span>
+            <h3>Desorganização crescente</h3>
+            <p>Quanto pior a noite, mais difícil fica reconstruir hábitos estáveis no dia seguinte.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section section--dark">
+    <section class="section section--dark" data-mode-visibility="reading">
       <div class="wrap">
         <p class="eyebrow">Benefícios</p>
         <h2>O que ganhamos quando protegemos o sono?</h2>
@@ -214,11 +276,36 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section--dark" data-mode-visibility="screen" hidden>
+      <div class="wrap">
+        <p class="eyebrow">Estatísticas e impacto</p>
+        <h2>Porque vale a pena levar isto a sério?</h2>
+        <div class="benefits">
+          <article>
+            <h3>Sono mais curto</h3>
+            <p>O tempo de descanso noturno tende a diminuir quando os ecrãs ocupam o último bloco da noite.</p>
+          </article>
+          <article>
+            <h3>Pior qualidade</h3>
+            <p>Mesmo dormindo, a recuperação pode ser menor e a manhã seguinte mais pesada.</p>
+          </article>
+          <article>
+            <h3>Maior ativação</h3>
+            <p>O cérebro demora mais a abrandar quando recebe luz, notificações e conteúdo estimulante até tarde.</p>
+          </article>
+          <article>
+            <h3>Ciclo repetido</h3>
+            <p>A fadiga do dia seguinte aumenta a probabilidade de voltar a usar mal os ecrãs na noite seguinte.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-mode-visibility="reading">
       <div class="wrap campaign-box">
         <div>
           <p class="eyebrow">Mensagem-chave</p>
-          <h2>Uma rotina simples para a campanha</h2>
+          <h2>Uma rotina simples para melhorar o descanso</h2>
         </div>
         <ol class="steps">
           <li><strong>60 minutos antes:</strong> baixar luzes, acabar trabalho escolar e reduzir notificações.</li>
@@ -226,25 +313,43 @@
           <li><strong>À hora de deitar:</strong> quarto escuro, silencioso e confortável.</li>
           <li><strong>Na manhã seguinte:</strong> acordar a horas e procurar luz natural.</li>
         </ol>
-        <p class="campaign-box__footer">
-          Se houver dificuldade persistente em adormecer, sonolência excessiva durante o dia, ressonar intenso ou despertares frequentes,
-          é importante procurar aconselhamento profissional.
-        </p>
       </div>
     </section>
 
-    <section class="section section--tint">
-      <div class="wrap campaign-box">
+    <section class="section" data-mode-visibility="screen" hidden>
+      <div class="wrap campaign-box campaign-box--warning">
         <div>
-          <p class="eyebrow">Participação</p>
-          <h2>O questionário tem agora uma página própria.</h2>
+          <p class="eyebrow">Mensagem-chave</p>
+          <h2>Quando o ecrã entra na cama, o descanso sai de cena</h2>
         </div>
-        <p class="hero__lead">
-          Para manter a página inicial mais leve e mais clara, o formulário foi movido para uma secção própria.
-          Lá encontras todas as perguntas sobre hábitos de sono, uso de ecrãs e impacto percebido.
-        </p>
-        <div class="hero__actions">
-          <a class="button button--primary" href="./questionario.html">Abrir Questionário</a>
+        <ol class="steps">
+          <li><strong>Mais luz:</strong> o corpo demora mais a reconhecer que a noite começou.</li>
+          <li><strong>Mais estímulo:</strong> o cérebro continua em alerta quando devia abrandar.</li>
+          <li><strong>Menos sono:</strong> a hora de deitar desliza e o tempo total de descanso encurta.</li>
+          <li><strong>Mais fadiga:</strong> o dia seguinte fica mais pesado e o ciclo tende a repetir-se.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--explore">
+      <div class="wrap">
+        <p class="eyebrow">Continua a campanha</p>
+        <div class="launchpad">
+          <a class="launchpad__item" href="./sobre.html">
+            <span class="launchpad__meta">Sobre</span>
+            <h3>Conhecer a campanha</h3>
+            <p>Percebe a missão, os objetivos e como este projeto pode ser usado em contexto escolar ou comunitário.</p>
+          </a>
+          <a class="launchpad__item" href="./efeitos-ecras.html">
+            <span class="launchpad__meta">Efeitos</span>
+            <h3>Ver o impacto dos ecrãs</h3>
+            <p>Explora uma página dedicada aos efeitos negativos do uso excessivo de ecrãs antes de dormir.</p>
+          </a>
+          <a class="launchpad__item" href="./questionario.html">
+            <span class="launchpad__meta">Questionário</span>
+            <h3>Participar no estudo</h3>
+            <p>Responder ao questionário ajuda a recolher dados sobre hábitos de sono, ecrãs e impacto percebido.</p>
+          </a>
         </div>
       </div>
     </section>
@@ -267,6 +372,7 @@
       </div>
     </section>
   </main>
+
   <footer class="site-footer">
     <div class="wrap site-footer__inner">
       <p>Trabalho realizado por Alexandre Fernandes, Hélder Ferreira, Henrique Araújo e Ricardo Dias para a cadeira de Metodologia do Design Gráfico II (DGPL) - IPCA 2026.</p>

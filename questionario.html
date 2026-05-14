@@ -21,7 +21,14 @@
             <a href="./sobre.html">Sobre</a>
             <a href="./efeitos-ecras.html">Efeitos dos Ecrãs</a>
             <a href="./questionario.html" aria-current="page">Questionário</a>
-            <a href="https://www.instagram.com/ipca.psicologia/" target="_blank" rel="noreferrer">IPCA.PSICOLOGIA</a>
+            <a class="site-nav__social" href="https://www.instagram.com/ipca.psicologia/" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5"></rect>
+                <circle cx="12" cy="12" r="4.1"></circle>
+                <circle cx="17.35" cy="6.65" r="1.15"></circle>
+              </svg>
+              <span>IPCA.PSICOLOGIA</span>
+            </a>
           </div>
         </div>
       </nav>
@@ -41,7 +48,7 @@
         <div class="form-meta">
           <article class="form-meta__item">
             <strong>Estrutura</strong>
-            <span>5 secções: perfil, sono, sonolência, ecrãs e impacto percebido.</span>
+            <span>4 secções: perfil, sono, ecrãs e impacto percebido.</span>
           </article>
           <article class="form-meta__item">
             <strong>Objetivo</strong>
@@ -60,7 +67,7 @@
               <p>O formulário está organizado por blocos para ser mais simples de seguir e responder.</p>
               <ul>
                 <li>Responde com base na tua rotina real.</li>
-                <li>Não precisas de preencher nome ou email.</li>
+                <li>Nome ou número de estudante e email são opcionais.</li>
                 <li>Podes usar a lista ao lado para perceber a estrutura.</li>
               </ul>
             </article>
@@ -76,14 +83,10 @@
               </a>
               <a href="#sec-c">
                 <span class="questionnaire-index__tag">C</span>
-                <span class="questionnaire-index__text"><strong>Sonolência diurna</strong><span>Situações do dia a dia</span></span>
+                <span class="questionnaire-index__text"><strong>Uso de ecrãs</strong><span>Tempo, conteúdos e rotina noturna</span></span>
               </a>
               <a href="#sec-d">
                 <span class="questionnaire-index__tag">D</span>
-                <span class="questionnaire-index__text"><strong>Uso de ecrãs</strong><span>Tempo, conteúdos e rotina noturna</span></span>
-              </a>
-              <a href="#sec-e">
-                <span class="questionnaire-index__tag">E</span>
                 <span class="questionnaire-index__text"><strong>Impacto percebido</strong><span>Como sentes o efeito no sono</span></span>
               </a>
             </nav>
@@ -102,31 +105,35 @@
 
             <div class="field-grid">
               <label class="field">
-                <span>Qual é a sua idade?</span>
-                <select name="idade" required>
-                  <option value="">Seleciona</option>
-                  <option value="menos de 18">Menos de 18 anos</option>
-                  <option value="18-25">18-25 anos</option>
-                  <option value="26-40">26-40 anos</option>
-                  <option value="41-60">41-60 anos</option>
-                  <option value="mais de 60">Mais de 60 anos</option>
-                </select>
+                <span>Nome ou número de estudante (opcional)</span>
+                <input type="text" name="identificacao" placeholder="Ex.: João Silva ou 12345">
               </label>
 
               <label class="field">
-                <span>Qual é o seu género?</span>
+                <span>Email (opcional)</span>
+                <input type="email" name="email_contacto" placeholder="Ex.: nome@email.com">
+              </label>
+            </div>
+
+            <div class="field-grid">
+              <label class="field">
+                <span>Idade</span>
+                <input type="number" name="idade" min="1" step="1" placeholder="Ex.: 20" required>
+              </label>
+
+              <label class="field">
+                <span>Género</span>
                 <select name="genero" required>
                   <option value="">Seleciona</option>
                   <option value="feminino">Feminino</option>
                   <option value="masculino">Masculino</option>
-                  <option value="outro">Outro</option>
                   <option value="prefiro nao responder">Prefiro não responder</option>
                 </select>
               </label>
             </div>
 
             <label class="field">
-              <span>Qual é a sua ocupação principal?</span>
+              <span>Ocupação principal</span>
               <select name="ocupacao_principal" required>
                 <option value="">Seleciona</option>
                 <option value="estudante basico secundario">Estudante (Ensino Básico/Secundário)</option>
@@ -135,13 +142,7 @@
                 <option value="trabalhador tempo parcial">Trabalhador(a) a tempo parcial</option>
                 <option value="reformado">Reformado(a)</option>
                 <option value="desempregado">Desempregado(a)</option>
-                <option value="outro">Outro</option>
               </select>
-            </label>
-
-            <label class="field">
-              <span>Se escolheste "Outro", especifica</span>
-              <input type="text" name="ocupacao_outro" placeholder="Escreve aqui">
             </label>
           </section>
 
@@ -158,45 +159,99 @@
 
             <div class="field-grid">
               <label class="field">
-                <span>Durante o último mês, a que horas costuma ir para a cama?</span>
-                <input type="time" name="hora_deitar" required>
+                <span>A que horas costuma ir para a cama?</span>
+                <select name="hora_deitar" required>
+                  <option value="">Seleciona</option>
+                  <option value="00:00">00:00</option>
+                  <option value="01:00">01:00</option>
+                  <option value="02:00">02:00</option>
+                  <option value="03:00">03:00</option>
+                  <option value="04:00">04:00</option>
+                  <option value="05:00">05:00</option>
+                  <option value="06:00">06:00</option>
+                  <option value="07:00">07:00</option>
+                  <option value="08:00">08:00</option>
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                  <option value="12:00">12:00</option>
+                  <option value="13:00">13:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                  <option value="19:00">19:00</option>
+                  <option value="20:00">20:00</option>
+                  <option value="21:00">21:00</option>
+                  <option value="22:00">22:00</option>
+                  <option value="23:00">23:00</option>
+                </select>
               </label>
 
               <label class="field">
                 <span>Quanto tempo costuma demorar a adormecer? (minutos)</span>
-                <input type="number" name="minutos_adormecer" min="0" step="1" placeholder="Ex.: 20" required>
+                <input type="number" name="minutos_adormecer" min="0" step="1" placeholder="Exemplo: 20" required>
               </label>
             </div>
 
             <div class="field-grid">
               <label class="field">
-                <span>Durante o último mês, a que horas costuma acordar?</span>
-                <input type="time" name="hora_acordar" required>
+                <span>A que horas costuma acordar?</span>
+                <select name="hora_acordar" required>
+                  <option value="">Seleciona</option>
+                  <option value="00:00">00:00</option>
+                  <option value="01:00">01:00</option>
+                  <option value="02:00">02:00</option>
+                  <option value="03:00">03:00</option>
+                  <option value="04:00">04:00</option>
+                  <option value="05:00">05:00</option>
+                  <option value="06:00">06:00</option>
+                  <option value="07:00">07:00</option>
+                  <option value="08:00">08:00</option>
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                  <option value="12:00">12:00</option>
+                  <option value="13:00">13:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                  <option value="19:00">19:00</option>
+                  <option value="20:00">20:00</option>
+                  <option value="21:00">21:00</option>
+                  <option value="22:00">22:00</option>
+                  <option value="23:00">23:00</option>
+                </select>
               </label>
 
               <label class="field">
                 <span>Quantas horas de sono efetivo costuma ter por noite?</span>
-                <input type="number" name="horas_sono_efetivo" min="0" max="24" step="0.5" placeholder="Ex.: 7.5" required>
+                <select name="horas_sono_efetivo" required>
+                  <option value="">Seleciona</option>
+                  <option value="1">1 hora</option>
+                  <option value="2">2 horas</option>
+                  <option value="3">3 horas</option>
+                  <option value="4">4 horas</option>
+                  <option value="5">5 horas</option>
+                  <option value="6">6 horas</option>
+                  <option value="7">7 horas</option>
+                  <option value="8">8 horas</option>
+                  <option value="9">9 horas</option>
+                  <option value="10">10 horas</option>
+                  <option value="11">11 horas</option>
+                  <option value="12">12 horas</option>
+                </select>
               </label>
             </div>
 
             <div class="field-grid field-grid--dense">
-              <label class="field"><span>5a. Não conseguir adormecer em 30 minutos</span><select name="sono_prob_5a" required><option value="">Seleciona</option><option value="nunca">Nunca durante o último mês</option><option value="menos_1_semana">Menos de uma vez por semana</option><option value="1_2_semana">Uma ou duas vezes por semana</option><option value="3_ou_mais_semana">Três ou mais vezes por semana</option></select></label>
-              <label class="field"><span>5b. Acordar a meio da noite ou de manhã cedo</span><select name="sono_prob_5b" required><option value="">Seleciona</option><option value="nunca">Nunca durante o último mês</option><option value="menos_1_semana">Menos de uma vez por semana</option><option value="1_2_semana">Uma ou duas vezes por semana</option><option value="3_ou_mais_semana">Três ou mais vezes por semana</option></select></label>
-              <label class="field"><span>5c. Ter de se levantar para ir à casa de banho</span><select name="sono_prob_5c" required><option value="">Seleciona</option><option value="nunca">Nunca durante o último mês</option><option value="menos_1_semana">Menos de uma vez por semana</option><option value="1_2_semana">Uma ou duas vezes por semana</option><option value="3_ou_mais_semana">Três ou mais vezes por semana</option></select></label>
-              <label class="field"><span>5d. Dificuldade em respirar</span><select name="sono_prob_5d" required><option value="">Seleciona</option><option value="nunca">Nunca durante o último mês</option><option value="menos_1_semana">Menos de uma vez por semana</option><option value="1_2_semana">Uma ou duas vezes por semana</option><option value="3_ou_mais_semana">Três ou mais vezes por semana</option></select></label>
-              <label class="field"><span>5e. Tossir ou ressonar alto</span><select name="sono_prob_5e" required><option value="">Seleciona</option><option value="nunca">Nunca durante o último mês</option><option value="menos_1_semana">Menos de uma vez por semana</option><option value="1_2_semana">Uma ou duas vezes por semana</option><option value="3_ou_mais_semana">Três ou mais vezes por semana</option></select></label>
-              <label class="field"><span>5f. Sentir demasiado frio</span><select name="sono_prob_5f" required><option value="">Seleciona</option><option value="nunca">Nunca durante o último mês</option><option value="menos_1_semana">Menos de uma vez por semana</option><option value="1_2_semana">Uma ou duas vezes por semana</option><option value="3_ou_mais_semana">Três ou mais vezes por semana</option></select></label>
-              <label class="field"><span>5g. Sentir demasiado calor</span><select name="sono_prob_5g" required><option value="">Seleciona</option><option value="nunca">Nunca durante o último mês</option><option value="menos_1_semana">Menos de uma vez por semana</option><option value="1_2_semana">Uma ou duas vezes por semana</option><option value="3_ou_mais_semana">Três ou mais vezes por semana</option></select></label>
-              <label class="field"><span>5h. Pesadelos</span><select name="sono_prob_5h" required><option value="">Seleciona</option><option value="nunca">Nunca durante o último mês</option><option value="menos_1_semana">Menos de uma vez por semana</option><option value="1_2_semana">Uma ou duas vezes por semana</option><option value="3_ou_mais_semana">Três ou mais vezes por semana</option></select></label>
-              <label class="field"><span>5i. Dores</span><select name="sono_prob_5i" required><option value="">Seleciona</option><option value="nunca">Nunca durante o último mês</option><option value="menos_1_semana">Menos de uma vez por semana</option><option value="1_2_semana">Uma ou duas vezes por semana</option><option value="3_ou_mais_semana">Três ou mais vezes por semana</option></select></label>
-              <label class="field"><span>5j. Outras razões</span><select name="sono_prob_5j" required><option value="">Seleciona</option><option value="nunca">Nunca durante o último mês</option><option value="menos_1_semana">Menos de uma vez por semana</option><option value="1_2_semana">Uma ou duas vezes por semana</option><option value="3_ou_mais_semana">Três ou mais vezes por semana</option></select></label>
+              <label class="field"><span>Acordar a meio da noite ou de manhã cedo</span><select name="sono_prob_5b" required><option value="">Seleciona</option><option value="nunca">Nunca durante o último mês</option><option value="menos_1_semana">Menos de uma vez por semana</option><option value="1_2_semana">Uma ou duas vezes por semana</option><option value="3_ou_mais_semana">Três ou mais vezes por semana</option></select></label>
+              <label class="field"><span>Sentir demasiado calor</span><select name="sono_prob_5g" required><option value="">Seleciona</option><option value="nunca">Nunca durante o último mês</option><option value="menos_1_semana">Menos de uma vez por semana</option><option value="1_2_semana">Uma ou duas vezes por semana</option><option value="3_ou_mais_semana">Três ou mais vezes por semana</option></select></label>
+              <label class="field"><span>Pesadelos</span><select name="sono_prob_5h" required><option value="">Seleciona</option><option value="nunca">Nunca durante o último mês</option><option value="menos_1_semana">Menos de uma vez por semana</option><option value="1_2_semana">Uma ou duas vezes por semana</option><option value="3_ou_mais_semana">Três ou mais vezes por semana</option></select></label>
             </div>
-
-            <label class="field">
-              <span>Se assinalaste "Outras razões", especifica</span>
-              <input type="text" name="sono_prob_5j_outro" placeholder="Escreve aqui">
-            </label>
 
             <div class="field-grid">
               <label class="field">
@@ -239,29 +294,6 @@
               <div class="form-section__topline">
                 <span class="form-section__badge">C</span>
                 <p class="eyebrow">Secção C</p>
-              </div>
-              <h3>Sonolência Diurna</h3>
-            </div>
-
-            <p class="section-note">Usa a escala: 0 = Nunca adormeceria, 1 = Pequena probabilidade, 2 = Moderada probabilidade, 3 = Grande probabilidade.</p>
-
-            <div class="field-grid field-grid--dense">
-              <label class="field"><span>A ler sentado(a)</span><select name="ess_ler_sentado" required><option value="">Seleciona</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label>
-              <label class="field"><span>A ver televisão</span><select name="ess_ver_televisao" required><option value="">Seleciona</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label>
-              <label class="field"><span>Sentado(a), inativo(a), num local público</span><select name="ess_local_publico" required><option value="">Seleciona</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label>
-              <label class="field"><span>Como passageiro(a) num carro durante uma hora</span><select name="ess_passageiro_carro" required><option value="">Seleciona</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label>
-              <label class="field"><span>A deitar-se para descansar à tarde</span><select name="ess_descanso_tarde" required><option value="">Seleciona</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label>
-              <label class="field"><span>A conversar com alguém</span><select name="ess_conversar" required><option value="">Seleciona</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label>
-              <label class="field"><span>A comer uma refeição sentado(a)</span><select name="ess_comer_sentado" required><option value="">Seleciona</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label>
-              <label class="field"><span>Num carro parado no trânsito por alguns minutos</span><select name="ess_carro_transito" required><option value="">Seleciona</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label>
-            </div>
-          </section>
-
-          <section class="form-section" id="sec-d">
-            <div class="form-section__head">
-              <div class="form-section__topline">
-                <span class="form-section__badge">D</span>
-                <p class="eyebrow">Secção D</p>
               </div>
               <h3>Uso de Ecrãs</h3>
             </div>
@@ -314,15 +346,9 @@
                   <option value="videos_filmes_series">Vídeos/Filmes/Séries</option>
                   <option value="noticias_leitura">Notícias/Leitura</option>
                   <option value="trabalho_estudo">Trabalho/Estudo</option>
-                  <option value="outro">Outro</option>
                 </select>
               </label>
             </div>
-
-            <label class="field">
-              <span>Se escolheste "Outro" no conteúdo, especifica</span>
-              <input type="text" name="ecras_conteudo_outro" placeholder="Escreve aqui">
-            </label>
 
             <div class="field-grid">
               <label class="field">
@@ -346,11 +372,11 @@
             </div>
           </section>
 
-          <section class="form-section" id="sec-e">
+          <section class="form-section" id="sec-d">
             <div class="form-section__head">
               <div class="form-section__topline">
-                <span class="form-section__badge">E</span>
-                <p class="eyebrow">Secção E</p>
+                <span class="form-section__badge">D</span>
+                <p class="eyebrow">Secção D</p>
               </div>
               <h3>Impacto Percebido</h3>
             </div>
@@ -383,26 +409,6 @@
           </section>
 
           <section class="form-section">
-            <div class="form-section__head">
-              <div class="form-section__topline">
-                <span class="form-section__badge">F</span>
-                <p class="eyebrow">Secção Final</p>
-              </div>
-              <h3>Identificação opcional</h3>
-            </div>
-
-            <div class="field-grid">
-              <label class="field">
-                <span>Nome ou número de aluno (opcional)</span>
-                <input type="text" name="identificacao" placeholder="Ex.: João Silva ou 12345">
-              </label>
-
-              <label class="field">
-                <span>Email de contacto (opcional)</span>
-                <input type="email" name="email_contacto" placeholder="Ex.: nome@email.com">
-              </label>
-            </div>
-
             <div class="form-actions">
               <button class="button button--primary" type="submit">Enviar respostas</button>
               <p class="form-status" id="form-status" aria-live="polite"></p>
