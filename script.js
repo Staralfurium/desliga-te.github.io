@@ -2,6 +2,7 @@ const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyqbUL98I2sfBJR
 const THEME_STORAGE_KEY = "desliga-te-theme";
 const VISIT_TIMER_STORAGE_KEY = "desliga-te-visit-start";
 const VISIT_TIMER_WARNING_SECONDS = 5 * 60;
+const CONSENT_STORAGE_KEY = "desliga-te-consentimento-pesquisa";
 
 const themeIcons = {
   reading: `
@@ -37,6 +38,7 @@ const themeModes = {
 
 const form = document.querySelector("#survey-form");
 const statusNode = document.querySelector("#form-status");
+const consentInput = document.querySelector("#consentimento-pesquisa");
 
 function formatVisitDuration(totalSeconds) {
   const hours = Math.floor(totalSeconds / 3600);
@@ -87,6 +89,81 @@ function mountVisitTimer() {
 
   updateTimer();
   window.setInterval(updateTimer, 1000);
+}
+
+function setResearchConsent(consent) {
+  const submitButton = form ? form.querySelector('button[type="submit"]') : null;
+  const safeConsent = consent === "sim" ? "sim" : "nao";
+
+  localStorage.setItem(CONSENT_STORAGE_KEY, safeConsent);
+
+  if (consentInput) {
+    consentInput.value = safeConsent;
+  }
+
+  if (submitButton) {
+    submitButton.disabled = safeConsent !== "sim";
+  }
+
+  if (statusNode) {
+    if (safeConsent === "sim") {
+      statusNode.textContent = "";
+    } else {
+      statusNode.textContent = "Sem consentimento para pesquisa académica, o questionário não pode ser submetido.";
+    }
+  }
+}
+
+function closeConsentModal() {
+  const modal = document.querySelector("#consent-modal");
+  if (modal) {
+    modal.hidden = true;
+  }
+}
+
+function openConsentModal() {
+  const modal = document.querySelector("#consent-modal");
+  if (modal) {
+    modal.hidden = false;
+  }
+}
+
+function mountResearchConsent() {
+  if (!form || !consentInput) {
+    return;
+  }
+
+  const acceptButton = document.querySelector("#consent-accept");
+  const declineButton = document.querySelector("#consent-decline");
+  const dismissButton = document.querySelector("[data-consent-dismiss]");
+  const savedConsent = localStorage.getItem(CONSENT_STORAGE_KEY);
+
+  if (savedConsent === "sim" || savedConsent === "nao") {
+    setResearchConsent(savedConsent);
+  } else {
+    setResearchConsent("nao");
+    openConsentModal();
+  }
+
+  if (acceptButton) {
+    acceptButton.addEventListener("click", () => {
+      setResearchConsent("sim");
+      closeConsentModal();
+    });
+  }
+
+  if (declineButton) {
+    declineButton.addEventListener("click", () => {
+      setResearchConsent("nao");
+      closeConsentModal();
+    });
+  }
+
+  if (dismissButton) {
+    dismissButton.addEventListener("click", () => {
+      closeConsentModal();
+    });
+  }
 }
 
 function updateModeContent(mode) {
@@ -154,10 +231,18 @@ function mountThemeSwitch() {
 
 mountThemeSwitch();
 mountVisitTimer();
+mountResearchConsent();
 
 if (form && statusNode) {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
+
+    if (!consentInput || consentInput.value !== "sim") {
+      statusNode.textContent =
+        "Precisas de aceitar a utilização dos dados anónimos para pesquisa académica antes de enviar.";
+      openConsentModal();
+      return;
+    }
 
     if (!APPS_SCRIPT_URL) {
       statusNode.textContent =

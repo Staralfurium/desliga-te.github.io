@@ -1311,6 +1311,49 @@ body[data-theme="screen"] .mode-toggle__button:focus-visible {
   font-weight: 700;
 }
 
+.consent-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.consent-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 23, 48, 0.46);
+  backdrop-filter: blur(6px);
+}
+
+.consent-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: min(38rem, calc(100vw - 2rem));
+  padding: 1.5rem;
+  border-radius: 1.6rem;
+  background: rgba(255, 250, 242, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  box-shadow: 0 24px 60px rgba(20, 21, 43, 0.24);
+}
+
+.consent-modal__panel h2 {
+  max-width: 16ch;
+  margin-bottom: 0.9rem;
+}
+
+.consent-modal__panel p:last-of-type {
+  margin: 0;
+}
+
+.consent-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 1.3rem;
+}
+
 .form-meta {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

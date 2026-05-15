@@ -67,7 +67,7 @@
               <p>O formulário está organizado por blocos para ser mais simples de seguir e responder.</p>
               <ul>
                 <li>Responde com base na tua rotina real.</li>
-                <li>Nome ou número de estudante e email são opcionais.</li>
+                <li>O questionário é anónimo e não recolhe nome nem email.</li>
                 <li>Podes usar a lista ao lado para perceber a estrutura.</li>
               </ul>
             </article>
@@ -94,6 +94,7 @@
 
           <div class="questionnaire-main">
         <form class="survey-form" id="survey-form">
+          <input type="hidden" name="consentimento_pesquisa" id="consentimento-pesquisa" value="">
           <section class="form-section" id="sec-a">
             <div class="form-section__head">
               <div class="form-section__topline">
@@ -101,18 +102,6 @@
                 <p class="eyebrow">Secção A</p>
               </div>
               <h3>Dados Demográficos</h3>
-            </div>
-
-            <div class="field-grid">
-              <label class="field">
-                <span>Nome ou número de estudante (opcional)</span>
-                <input type="text" name="identificacao" placeholder="Ex.: João Silva ou 12345">
-              </label>
-
-              <label class="field">
-                <span>Email (opcional)</span>
-                <input type="email" name="email_contacto" placeholder="Ex.: nome@email.com">
-              </label>
             </div>
 
             <div class="field-grid">
@@ -409,6 +398,7 @@
           </section>
 
           <section class="form-section">
+            <p class="section-note">As respostas são anónimas e destinam-se a tratamento para fins de pesquisa académica mediante consentimento.</p>
             <div class="form-actions">
               <button class="button button--primary" type="submit">Enviar respostas</button>
               <p class="form-status" id="form-status" aria-live="polite"></p>
@@ -420,6 +410,21 @@
       </div>
     </section>
   </main>
+
+  <div class="consent-modal" id="consent-modal" hidden>
+    <div class="consent-modal__backdrop" data-consent-dismiss></div>
+    <div class="consent-modal__panel" role="dialog" aria-modal="true" aria-labelledby="consent-title">
+      <p class="eyebrow">Consentimento</p>
+      <h2 id="consent-title">Autoriza a utilização destes dados anónimos para pesquisa académica?</h2>
+      <p>
+        As respostas deste questionário são anónimas e serão usadas apenas para análise académica no âmbito deste projeto.
+      </p>
+      <div class="consent-modal__actions">
+        <button class="button button--primary" type="button" id="consent-accept">Aceito</button>
+        <button class="button button--ghost" type="button" id="consent-decline">Não aceito</button>
+      </div>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="wrap site-footer__inner">
